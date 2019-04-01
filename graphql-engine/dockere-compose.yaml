@@ -1,0 +1,12 @@
+version: '3.6'
+services:
+  graphql-engine:
+    image: hasura/graphql-engine:v1.0.0-alpha41
+    ports:
+    - "8080:8080"
+    environment:
+    - "POSTGRES_PASSWORD:dalong"
+    command: >
+      /bin/sh -c "
+      graphql-engine --database-url postgres://postgres@<hostip>:5432/postgres serve --enable-console;
+      "
